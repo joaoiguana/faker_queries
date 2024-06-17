@@ -1,0 +1,30 @@
+<h1>Top 5 Users with Most Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Post Count</th>
+      <th>Posts</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.posts_count %></td>
+        <td>
+          <ul>
+            <% user.posts.each do |post| %>
+              <li>
+                <strong><%= post.title %></strong>: <%= post.body %>
+              </li>
+            <% end %>
+          </ul>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
